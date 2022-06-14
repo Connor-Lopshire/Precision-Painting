@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router-dom"
-import { Login } from "../auth/Login"
-import { Register } from "../auth/Register"
-import { ApplicationViews } from "./ApplicationViews"
-import { Authorized } from "./Authorized"
+import { Login } from "./components/auth/Login"
+import { Register } from "./components/auth/Register"
+import { NavBar } from "./components/nav/NavBar"
+import { ApplicationViews } from "./components/views/ApplicationViews"
+import { Authorized } from "./components/views/Authorized"
 
 export const PrecisionPainting = () => {
     return <Routes>
@@ -12,7 +13,7 @@ export const PrecisionPainting = () => {
 		<Route path="*" element={
 			<Authorized>
 				<>
-				
+					<NavBar/>
 					<ApplicationViews />
 				</>
 			</Authorized>
