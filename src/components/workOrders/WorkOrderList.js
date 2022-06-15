@@ -9,4 +9,32 @@
 //  map and display filteredWorkOrders
 //  give this component  to both Customer and Employee View
 
- 
+import { useEffect, useState } from "react"
+
+ export const WorkOrderList = () => {
+    const [activeWorkOrders, setActiveWorkOrders] = useState([])
+    const [filteredWorkOrders, setFilteredWorkOrders] = useState([])
+    const localePaintUser = localStorage.getItem("paint_user")
+    const paintUserObject = JSON.parse(localePaintUser)
+
+    useEffect(
+        () => {
+            fetch(``)
+            .then(response => response.json())
+            .then((workOrderArray) => {
+                setActiveWorkOrders(workOrderArray)
+            })
+            console.log("Initial state of workOrders", console.log(activeWorkOrders)) // View the initial state of workOrders
+        },
+        [] // When this array is empty, 
+        
+    )
+    useEffect(
+        () => { 
+            const myWorkOrders = activeWorkOrders.filter(order => order.workOrder.userId === localePaintUser.id)
+            setFilteredWorkOrders(myWorkOrders)
+
+        }, [activeWorkOrders]
+    )
+    return <></>
+ }
