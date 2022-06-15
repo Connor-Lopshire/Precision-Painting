@@ -19,7 +19,7 @@ import { useEffect, useState } from "react"
 
     useEffect(
         () => {
-            fetch(``)
+            fetch(`http://localhost:8088/estimates?_expand=workOrder&approved=true&completed=false`)
             .then(response => response.json())
             .then((workOrderArray) => {
                 setActiveWorkOrders(workOrderArray)
@@ -31,7 +31,7 @@ import { useEffect, useState } from "react"
     )
     useEffect(
         () => { 
-            const myWorkOrders = activeWorkOrders.filter(order => order.workOrder.userId === localePaintUser.id)
+            const myWorkOrders = activeWorkOrders.filter(order => order.workOrder.userId === paintUserObject.id)
             setFilteredWorkOrders(myWorkOrders)
 
         }, [activeWorkOrders]
