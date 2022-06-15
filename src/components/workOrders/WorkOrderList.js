@@ -40,16 +40,16 @@ export const WorkOrderList = () => {
     return <article>
 
 
-        {localePaintUser.isStaff === true
+        {paintUserObject.staff === true
             ? <>{
-                activeWorkOrders.map(order => <WorkOrder key={`activeWorkOrders`} id={order.id}  address={order.workOrder.address}/>)
+                activeWorkOrders.map(order => <WorkOrder key={`activeWorkOrders`} id={order.id}  address={order.workOrder.address} date={order.startDate}/>)
             }
             </>
             : <>
                 {filteredWorkOrders.map((order) => {
                     return <section key={`activeWorkOrder--${order.id}`}>
 
-                        <div key={`activeWorkOrder--${order.id}`}>{order.workOrder.address}</div>
+                        <div>{order.workOrder.address}</div> <div>Date Started:{order.startDate}</div>
                     </section>
                 })
                 }
