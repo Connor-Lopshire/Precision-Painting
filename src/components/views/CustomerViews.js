@@ -1,4 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { CustomerEstimateDetails } from "../estimates/CustomerEstimateDetails"
+import { CustomerEstimateList } from "../estimates/CustomerEstimateList"
 import { NewRequestForm } from "../request/NewRequestForm"
 import { RequestList } from "../request/RequestList"
 import { WorkOrderList } from "../workOrders/WorkOrderList"
@@ -13,6 +15,8 @@ export const CustomerViews = () => {
                     <Outlet />
                 </>
             }>
+              <Route path="CustomerEstimateDetails/:estimateId" element={<CustomerEstimateDetails/>}/>
+              <Route path="estimates" element={<CustomerEstimateList/>}/>
               <Route path="workOrders" element={<WorkOrderList/>}/>
               <Route path="request" element={<RequestList/>}/>
               <Route path="NewRequestForm" element={<NewRequestForm/>}/>
