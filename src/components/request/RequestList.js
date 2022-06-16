@@ -8,15 +8,16 @@
 // component will go to both employee and customer views
 
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Request } from "./Request"
 
 
 export const RequestList = () => {
-    const [requestList, setRequestList ] = useState([])
+    const [requestList, setRequestList] = useState([])
     const [filteredRequestList, setFilteredRequestList] = useState([])
     const localePaintUser = localStorage.getItem("paint_user")
     const paintUserObject = JSON.parse(localePaintUser)
-
+    const navigate = useNavigate()
     useEffect(
         () => {
             fetch(`http://localhost:8088/workOrders?accepted=false`)
@@ -30,23 +31,23 @@ export const RequestList = () => {
     )
     useEffect(
         () => {
-            const myRequest = requestList.filter(request => request.id === paintUserObject.id)
+            const myRequest = requestList.filter(request => request.userId === paintUserObject.id)
             setFilteredRequestList(myRequest)
 
         }, [requestList]
     )
     return <article>
-            <h2>Requested Work</h2>
+        <h2>Requested Work</h2>
 
         {paintUserObject.staff === true
             ? <>{
-                requestList.map(request => <Request key={`employeeRequest--${request.id}`} id={request.id}  address={request.address} date={request.date}/>)
+                requestList.map(request => <Request key={`employeeRequest--${request.id}`} id={request.id} address={request.address} date={request.date} />)
             }
             </>
             : <>
+                <button onClick={() => navigate("/NewRequestForm")}>Create Work Request</button>
                 {filteredRequestList.map((request) => {
                     return <section key={`request--${request.id}`}>
-
                         <div>{request.address}</div> <div>Date Requested:{request.date}</div>
                     </section>
                 })

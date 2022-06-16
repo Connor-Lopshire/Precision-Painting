@@ -31,7 +31,7 @@ export const WorkOrderList = () => {
     )
     useEffect(
         () => {
-            const myWorkOrders = activeWorkOrders.filter(order => order.workOrder.userId === paintUserObject.id)
+            const myWorkOrders = activeWorkOrders.filter(order => order?.workOrder?.userId === paintUserObject.id)
             setFilteredWorkOrders(myWorkOrders)
 
         }, [activeWorkOrders]
