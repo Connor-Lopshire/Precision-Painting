@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom"
 
 export const WorkOrder = ({id, address, date}) => {
-    return <section key={`activeWorkOrder--${id}`} className="activeWorkOrder" >
+    return <section className="activeWorkOrder" >
     <div>
         <Link to={`/completeWorkOrder/${id}`} >{address}</Link>
         </div>

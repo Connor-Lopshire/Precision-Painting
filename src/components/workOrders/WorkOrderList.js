@@ -25,7 +25,6 @@ export const WorkOrderList = () => {
                 .then((workOrderArray) => {
                     setActiveWorkOrders(workOrderArray)
                 })
-            console.log("Initial state of workOrders", console.log(activeWorkOrders)) // View the initial state of workOrders
         },
         [] // When this array is empty, 
 
@@ -38,11 +37,11 @@ export const WorkOrderList = () => {
         }, [activeWorkOrders]
     )
     return <article>
-
+            <h2>Active Work</h2>
 
         {paintUserObject.staff === true
             ? <>{
-                activeWorkOrders.map(order => <WorkOrder key={`activeWorkOrders`} id={order.id}  address={order.workOrder.address} date={order.startDate}/>)
+                activeWorkOrders.map(order => <WorkOrder key={`employeeActiveWorkOrders--${order.id}`} id={order.id}  address={order.workOrder.address} date={order.startDate}/>)
             }
             </>
             : <>

@@ -5,7 +5,7 @@ export const EmployeeNav = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/request">Reuqest</Link>
+                <Link className="navbar__link" to="/request">Request</Link>
             </li>
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/invoices">Invoices</Link>

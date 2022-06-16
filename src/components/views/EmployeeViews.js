@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { CompleteWorkOrder } from "../workOrders/CompleteWorkOrder"
 import { WorkOrderList } from "../workOrders/WorkOrderList"
 export const EmployeeViews = () => {
     return (
@@ -10,7 +11,9 @@ export const EmployeeViews = () => {
                     <Outlet />
                 </>
             }>
-              <Route path="workOrders" element={<WorkOrderList/>}/>
+             
+             <Route path="completeWorkOrder/:estimateId" element={<CompleteWorkOrder/>}/> 
+             <Route path="workOrders" element={<WorkOrderList/>}/>
             </Route>
         </Routes>
     )
