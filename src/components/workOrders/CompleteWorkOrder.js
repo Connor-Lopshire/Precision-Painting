@@ -14,20 +14,23 @@
 // give component to employee View
 
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { WorkOrderDetails } from "./WorkOrderDetails"
 
 //  how to double pass props
 export const CompleteWorkOrder = () => {
     const { estimateId } = useParams()
-    const [estimate, setEstimate] = useState({}
+    const [estimate, setEstimate] = useState({
+        completed:false
+    }
        
     )
-    const { invoice, setInvoice } = useState({
+    const [invoice, setInvoice]= useState({
         dateCompleted: "",
         amountOwed: 0,
         completed: false
     })
+    const navigate = useNavigate()
     useEffect(
         () => {
             fetch(`http://localhost:8088/estimates?_expand=workOrder&completed=false&id=${estimateId}`)
@@ -43,7 +46,34 @@ export const CompleteWorkOrder = () => {
 const handleButtonClick = (event) => {
     event.preventDefault()
     // post or put first ? 
-
+    const newInvoice = {
+        workOrderId: estimate.workOrder.id,
+        estimateId: estimate.id,
+        dateCompleted: invoice.dateCompleted,
+        amountOwed: invoice.amountOwed,
+        completed: false
+    } 
+    return fetch(`http://localhost:8088/estimates/${estimateId}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(estimate)
+    })
+        .then(response => response.json())
+        .then(() => {
+            fetch(`http://localhost:8088/invoices`,{
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newInvoice)
+            })
+                .then(response => response.json())
+                .then(() => {
+                     navigate("/workOrders")
+                })
+        })
 
 }
 
