@@ -1,4 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { AcceptRequest } from "../request/AcceptRequest"
+import { RequestList } from "../request/RequestList"
 import { CompleteWorkOrder } from "../workOrders/CompleteWorkOrder"
 import { WorkOrderList } from "../workOrders/WorkOrderList"
 export const EmployeeViews = () => {
@@ -11,9 +13,10 @@ export const EmployeeViews = () => {
                     <Outlet />
                 </>
             }>
-             
-             <Route path="completeWorkOrder/:estimateId" element={<CompleteWorkOrder/>}/> 
-             <Route path="workOrders" element={<WorkOrderList/>}/>
+                <Route path="acceptRequest/:workOrderId" element={<AcceptRequest />} />
+                <Route path="request" element={<RequestList />} />
+                <Route path="completeWorkOrder/:estimateId" element={<CompleteWorkOrder />} />
+                <Route path="workOrders" element={<WorkOrderList />} />
             </Route>
         </Routes>
     )

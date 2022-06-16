@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom"
+import { RequestList } from "../request/RequestList"
 import { WorkOrderList } from "../workOrders/WorkOrderList"
 
 export const CustomerViews = () => {
@@ -12,6 +13,8 @@ export const CustomerViews = () => {
                 </>
             }>
               <Route path="workOrders" element={<WorkOrderList/>}/>
+              <Route path="request" element={<RequestList/>}/>
+
             </Route>
         </Routes>
     )
