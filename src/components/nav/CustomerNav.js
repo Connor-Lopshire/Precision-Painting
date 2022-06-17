@@ -13,6 +13,9 @@ export const CustomerNav = () => {
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/invoices">Invoices</Link>
             </li>
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/workOrders">Active Work</Link>
+            </li>
             {
                 localStorage.getItem("paint_user")
                     ? <li className="navbar__item navbar__logout">

@@ -10,8 +10,9 @@
 //  give this component  to both Customer and Employee View
 
 import { useEffect, useState } from "react"
+import { WorkOrder } from "./WorkOrder"
 
- export const WorkOrderList = () => {
+export const WorkOrderList = () => {
     const [activeWorkOrders, setActiveWorkOrders] = useState([])
     const [filteredWorkOrders, setFilteredWorkOrders] = useState([])
     const localePaintUser = localStorage.getItem("paint_user")
@@ -19,22 +20,44 @@ import { useEffect, useState } from "react"
 
     useEffect(
         () => {
-            fetch(``)
-            .then(response => response.json())
-            .then((workOrderArray) => {
-                setActiveWorkOrders(workOrderArray)
-            })
-            console.log("Initial state of workOrders", console.log(activeWorkOrders)) // View the initial state of workOrders
+            fetch(`http://localhost:8088/estimates?_expand=workOrder&approved=true&completed=false`)
+                .then(response => response.json())
+                .then((workOrderArray) => {
+                    setActiveWorkOrders(workOrderArray)
+                })
         },
         [] // When this array is empty, 
-        
+
     )
     useEffect(
-        () => { 
-            const myWorkOrders = activeWorkOrders.filter(order => order.workOrder.userId === localePaintUser.id)
+        () => {
+            const myWorkOrders = activeWorkOrders.filter(order => order?.workOrder?.userId === paintUserObject.id)
             setFilteredWorkOrders(myWorkOrders)
 
         }, [activeWorkOrders]
     )
-    return <></>
- }
+    return <article>
+            <h2>Active Work</h2>
+
+        {paintUserObject.staff === true
+            ? <>{
+                activeWorkOrders.map(order => <WorkOrder key={`employeeActiveWorkOrders--${order.id}`} id={order.id}  address={order.workOrder.address} date={order.startDate}/>)
+            }
+            </>
+            : <>
+                {filteredWorkOrders.map((order) => {
+                    return <section key={`activeWorkOrder--${order.id}`}>
+
+                        <div>{order.workOrder.address}</div> <div>Date Started:{order.startDate}</div>
+                    </section>
+                })
+                }
+            </>
+
+
+
+
+        }
+
+    </article>
+}
