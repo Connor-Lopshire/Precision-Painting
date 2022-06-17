@@ -30,15 +30,15 @@ export const NewRequestForm = () => {
         the user to the ticket list
     */
     const navigate = useNavigate()
-    const localHoneyUser = localStorage.getItem("honey_user")
-    const honeyUserObject = JSON.parse(localHoneyUser)
+    const localPaintUser = localStorage.getItem("paint_user")
+    const paintUserObject = JSON.parse(localPaintUser)
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
 
         // TODO: Create the object to be saved to the API
         const workOrderToSendToApi = {
-            userId: honeyUserObject.id,
+            userId: paintUserObject.id,
             description: workOrder.description,
             address: workOrder.address,
             date: workOrder.date,
