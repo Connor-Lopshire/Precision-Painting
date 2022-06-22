@@ -4,10 +4,11 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { PrecisionPainting } from './PrecisonPainting';
+import 'bulma/css/bulma.css'
 const container = document.getElementById("root")
 const root = createRoot(container)
 root.render(
-  <BrowserRouter>
+  <BrowserRouter  >
     <PrecisionPainting />
   </BrowserRouter>
 );

@@ -7,9 +7,9 @@ import { WorkOrderList } from "../workOrders/WorkOrderList"
 export const EmployeeViews = () => {
     return (
         <Routes>
-            <Route path="/" element={
+            <Route  path="/" element={
                 <>
-                    <h1>Precision Paint Company</h1>
+                    
 
                     <Outlet />
                 </>

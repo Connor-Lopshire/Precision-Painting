@@ -3,11 +3,12 @@
 import { Link } from "react-router-dom"
 
 export const WorkOrder = ({id, address, date}) => {
-    return <section className="activeWorkOrder" >
-    <div>
-        <Link to={`/completeWorkOrder/${id}`} >{address}</Link>
+    return <section className="tile is-parent box has-background-white-ter" >
+  
+    <div className="tile is-child">
+        <Link className="has-text-grey-dark" to={`/completeWorkOrder/${id}`} >{address}</Link>
         </div>
-    <div>Date Started{date}</div>
+    <div className="tile is-child">Date Started{date}</div>
 
 </section>
 }

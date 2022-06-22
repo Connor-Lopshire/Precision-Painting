@@ -36,8 +36,8 @@ export const WorkOrderList = () => {
 
         }, [activeWorkOrders]
     )
-    return <article>
-            <h2>Active Work</h2>
+    return <article className="has-background-white-ter pt-5 pr-5 pl-5">
+        <h2 className="title is-2  has-text-grey-dark ">Active Work</h2>
 
         {paintUserObject.staff === true
             ? <>{
@@ -46,9 +46,13 @@ export const WorkOrderList = () => {
             </>
             : <>
                 {filteredWorkOrders.map((order) => {
-                    return <section key={`activeWorkOrder--${order.id}`}>
+                    return <section className="mt-5" key={`activeWorkOrder--${order.id}`}>
+                        <div className="tile is-ancestor is-vertical box">
 
-                        <div>{order.workOrder.address}</div> <div>Date Started:{order.startDate}</div>
+                        <div className="tile is-child  is-vertical ">{order.workOrder.address}</div> 
+
+                        <div className="tile is-child is-vertical ">Date Started:{order.startDate}</div>
+                        </div>
                     </section>
                 })
                 }

@@ -12,7 +12,7 @@ export const CustomerViews = () => {
         <Routes>
             <Route path="/" element={
                 <>
-                    <h1>Precision Paint Company</h1>
+                    <h1 className="title is-1">Precision Paint Company</h1>
 
                     <Outlet />
                 </>
