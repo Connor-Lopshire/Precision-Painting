@@ -80,10 +80,10 @@ export const EmployeeNav = () => {
                     <Link className="navbar__link" to="/request">Request</Link>
                     </li>
                     <li>
-                    <Link className="navbar__link" to="/invoices">Invoices</Link>
+                    <Link className="navbar__link" to="/workOrders">Active Work</Link>
                     </li>
                     <li>
-                    <Link className="navbar__link" to="/workOrders">Active Work</Link>
+                    <Link className="navbar__link" to="/invoices">Invoices</Link>
                     </li>
                    
                 </ul>

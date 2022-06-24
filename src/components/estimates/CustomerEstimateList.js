@@ -39,7 +39,7 @@ export const CustomerEstimateList = ({searchTermState}) => {
 
         }, [estimates]
     )
-    return <article className="has-background-white-ter">
+    return <article className="has-background-white-ter pb-6">
           
 
         {<>

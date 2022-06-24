@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 export const CustomerEstimate = ({id, address, estimateDate, price}) => {
      
 
- return    <section className="tile is-parent box has-background-white-ter">
+ return    <section className="tile is-parent box has-background-white-ter ">
    
 
     <Link  className="tile is-child has-text-grey-dark" to={`/CustomerEstimateDetails/${id}`}>{address}</Link>

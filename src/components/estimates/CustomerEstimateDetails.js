@@ -57,7 +57,7 @@ export const CustomerEstimateDetails = () => {
                 <div className="title" > {estimate?.workOrder?.address} </div>
                 <div className="subtitle mt-4" > {estimate.estimateDate} </div>
                 <div className="content" >  {estimate?.workOrder?.description} </div>
-                <div className="content">  {estimate.price} </div>
+                <div className="content">  ${estimate.price} </div>
                 
           
 

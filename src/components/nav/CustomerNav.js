@@ -80,15 +80,15 @@ export const CustomerNav = () => {
                     <li >
                     <Link className="navbar__link" to="/request">Request</Link>
                     </li>
+                    <li className="navbar__item active">
+                <Link className="navbar__link" to="/estimates">Estimates</Link>
+            </li>
                     <li>
                     <Link className="navbar__link" to="/invoices">Invoices</Link>
                     </li>
                     <li>
                     <Link className="navbar__link" to="/workOrders">Active Work</Link>
                     </li>
-                    <li className="navbar__item active">
-                <Link className="navbar__link" to="/estimates">Estimates</Link>
-            </li>
                    
                 </ul>
             </div>
