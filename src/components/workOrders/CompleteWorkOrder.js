@@ -108,8 +108,8 @@ export const CompleteWorkOrder = () => {
                 </div>
 
                 <div className="field">
-                    <div className="form-group">
                         <label className="label">Amount Owed:</label>
+                    <div className="control">
                         <div className="control">
 
                             <input

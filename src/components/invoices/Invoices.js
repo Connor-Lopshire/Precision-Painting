@@ -6,7 +6,7 @@
 import { useEffect, useState } from "react"
 import { Invoice } from "./Invoice"
 
-export const InvoiceList = () => {
+export const InvoiceList = ({searchTermState}) => {
     const [invoices, setInvoices] = useState([])
     const [filteredInvoices, setFilteredInvoices] = useState([])
     const localePaintUser = localStorage.getItem("paint_user")
@@ -25,24 +25,37 @@ export const InvoiceList = () => {
     )
     useEffect(
         () => {
-            const myInvoices = invoices.filter(invoice => invoice?.workOrder?.userId === paintUserObject.id)
-            setFilteredInvoices(myInvoices)
+            const searchedWorkOrder = invoices.filter( invoice => invoice.workOrder.address.toLowerCase().includes(searchTermState.toLowerCase()))
+            
+            setFilteredInvoices(searchedWorkOrder)
+
+        }, [searchTermState] 
+        )
+    useEffect(
+        () => {
+            if (paintUserObject.staff === true) {
+                setFilteredInvoices(invoices)
+            }
+            else {
+
+                const myInvoices = invoices.filter(invoice => invoice?.workOrder?.userId === paintUserObject.id)
+                setFilteredInvoices(myInvoices)
+            }
 
         }, [invoices]
     )
-    return <article>
-        <h2> Incomplete Invoices</h2>
-
+    return <article className="column has-background-white-ter pb-6 pt-6 pl-5 pr-5">
+        
         {paintUserObject.staff === true
             ? <>{
-                invoices.map((invoice) => {
-                    return <> 
-                        <div>{invoice.workOrder.address}</div>
-                        <div>{invoice.dateCompleted}</div>
-                        <div>{invoice.amountOwed}</div>
+                filteredInvoices.map((invoice) => {
+                    return <section className=" tile box is-parent has-background-white-ter"> 
+                        <div className="tile is-child">{invoice.workOrder.address}</div>
+                        <div className="tile is-child">{invoice.dateCompleted}</div>
+                        <div className="tile is-child">{invoice.amountOwed}</div>
 
 
-                    </>
+                    </section>
                 })
             }
             </>

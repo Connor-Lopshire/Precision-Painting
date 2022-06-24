@@ -46,19 +46,28 @@ export const CustomerEstimateDetails = () => {
     } )
 }
     console.log(estimate)
-    return (
-        <section>
+    return ( <article className=" has-background-white-ter  pb-6 ml-2">
 
-            <div>
+<h2 className="title is-2  has-background-white-ter pt-5  ml-5">Approve Estimate</h2>
+        <section className="tile is-ancestor pb-6  ml-5" >
+            <div className="tile is-parent pb-6 pt-5 ">
 
-                <div>  {estimate.price} </div>
-                <div> {estimate?.workOrder?.address} </div>
-                <div> {estimate.estimateDate} </div>
-            </div>
-            <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="aprroval"> Approved:</label>
-                        <input type="checkbox"
+        <div className="tile pb-6 is-child">
+
+                <div className="title" > {estimate?.workOrder?.address} </div>
+                <div className="subtitle mt-4" > {estimate.estimateDate} </div>
+                <div className="content" >  {estimate?.workOrder?.description} </div>
+                <div className="content">  {estimate.price} </div>
+                
+          
+
+            
+            <form>
+                    <div className="field">
+                        <div className="control">
+
+                        <label className="checkbox"> Approved:</label>
+                        <input type="checkbox" className="checkbox"
                             value={estimate.approved}
                             onChange={
                                 (evt) => {
@@ -68,17 +77,21 @@ export const CustomerEstimateDetails = () => {
                                     
                                 }
                             } />
+                            </div>
                     </div>
-                </fieldset>
-                <button
+                </form>
+                <button 
 
-           onClick={(evt) => {
-               handleButtonClick(evt)
-           }}
-           className="btn btn-primary">
+onClick={(evt) => {
+    handleButtonClick(evt)
+}}
+className="button is-dark my-6 ml-6">
            Submit 
        </button>
+               </div>
+    </div>
         </section>
+    </article>
     )
 
 }

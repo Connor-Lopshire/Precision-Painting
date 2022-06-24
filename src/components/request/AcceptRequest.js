@@ -82,21 +82,21 @@ export const AcceptRequest = () => {
 
 
 
-return <>
+return <article className="has-background-white-ter px-6 py-5">
     {
         <RequestDetails address={workOrder.address} description={workOrder.description}/>
     }
     {
         <form className="ticketForm">
-            <h2 className="invoiceForm__title">Create Estimate</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="estimateDate"> Estimate Date:</label>
+            <h2 className="title">Create Estimate</h2>
+            <div className="field">
+                    <label className="label"> Estimate Date:</label>
+                <div className="control">
                     <input
                         required autoFocus
                         type="date"
                         step="any"
-                        className="form-control"
+                        className="input is-rounded"
                         placeholder="estimateDate"
                         value={estimate.estimateDate}
                         onChange={
@@ -107,15 +107,15 @@ return <>
 
                             }} />
                 </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="startDate"> Start Date:</label>
+            </div>
+            <div className="field">
+                    <label className="label"> Start Date:</label>
+                <div className="control">
                     <input
                         required autoFocus
                         type="date"
                         step="any"
-                        className="form-control"
+                        className="input is-rounded"
                         placeholder="startDate"
                         value={estimate.startDate}
                         onChange={
@@ -126,15 +126,15 @@ return <>
 
                             }} />
                 </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="estimatePrice">Estimated Price:</label>
+            </div>
+            <div className="field">
+                    <label className="label">Estimated Price:</label>
+                <div className="control">
                     <input
                         required autoFocus
                         type="number"
                         step="any"
-                        className="form-control"
+                        className="input is-rounded"
                         placeholder="Amount Owed"
                         value={estimate.price}
                         onChange={
@@ -145,11 +145,12 @@ return <>
 
                             }} />
                 </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="workAccepted"> Work Accepted:</label>
+            </div>
+            <div className="field mt-5">
+                <div className="control">
+                    <label className="checkbox"> Work Accepted:</label>
                     <input type="checkbox"
+                    className="checkbox"
                         value={workOrder.accepted}
                         onChange={
                             (evt) => {
@@ -159,17 +160,17 @@ return <>
                             }
                         } />
                 </div>
-            </fieldset>
+            </div>
 
             <button
                 onClick={(evt) => {
                     handleButtonClick(evt)
                 }}
-                className="btn btn-primary">
+                className="button is-dark my-6">
                 Submit Estimate
             </button>
         </form>
 
     }
-</>
+</article>
 } 

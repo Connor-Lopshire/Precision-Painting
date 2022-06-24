@@ -59,16 +59,19 @@ export const NewRequestForm = () => {
             })
     }
 
-    return (
+    return <article  className="has-background-white-ter  px-6 py-6">
+
         <form className="ticketForm">
-            <h2 className="requestForm__title">New Work Order Request</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="description">Description:</label>
+            <h2 className="title">New Work Order Request</h2>
+            <div className="field mt-6">
+                
+                    <label className="label">Description:</label>
+                    <div className="control">
+
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="input is-rounded"
                         placeholder=""
                         value={workOrder.description}
                         onChange={
@@ -77,16 +80,17 @@ export const NewRequestForm = () => {
                                 copy.description = evt.target.value
                                 update(copy)
                                 
-                                } } />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="address">Address:</label>
+                            } } />
+                
+                            </div>
+            </div >
+            <div className="field mt-6">
+                    <label className="label">Address:</label>
+                <div className="control">
                     <input
                         required autoFocus
                         type="text"
-                        className="form-control"
+                        className="input is-rounded"
                         placeholder=""
                         value={workOrder.address}
                         onChange={
@@ -95,17 +99,17 @@ export const NewRequestForm = () => {
                                 copy.address = evt.target.value
                                 update(copy)
                                 
-                                } } />
+                            } } />
                 </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="startDate"> Request Date:</label>
+            </div>
+            <div className="field mt-6">
+                    <label className="label"> Request Date:</label>
+                <div className="control">
                     <input
                         required autoFocus
                         type="date"
                         step="any"
-                        className="form-control"
+                        className="input is-rounded"
                         placeholder="startDate"
                         value={workOrder.date}
                         onChange={
@@ -113,17 +117,18 @@ export const NewRequestForm = () => {
                                 const copy = { ...workOrder }
                                 copy.date = evt.target.value
                                 update(copy)
-
+                                
                             }} />
                 </div>
-            </fieldset>
+            </div>
             <button 
             onClick={ (clickEvent) => {
                 handleSaveButtonClick(clickEvent)
             }}
-            className="btn btn-primary">
+            className="button is-dark  mt-6 mb-6 ">
                 Submit Ticket
             </button>
         </form>
-    )
+                </article>
+    
 }

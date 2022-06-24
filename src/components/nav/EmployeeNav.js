@@ -42,7 +42,7 @@ export const EmployeeNav = () => {
                 </div>
                 <div id="navbarMenuHeroB" className="navbar-menu">
                     <div className="navbar-end">
-                        <a className="navbar-item is-active has-background-grey">
+                        <a className="navbar-item is-active has-background-grey ml-6">
                         {
                 localStorage.getItem("paint_user")
                     ? <li className="navbar__item navbar__logout">

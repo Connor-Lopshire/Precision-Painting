@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 import { CustomerEstimate } from "./CustomerEstimate"
 
 
-export const CustomerEstimateList = () => {
+export const CustomerEstimateList = ({searchTermState}) => {
     const [estimates, setEstimates] = useState([])
     const [filteredEstimates, setFilteredEstimates] = useState([])
     const localePaintUser = localStorage.getItem("paint_user")
@@ -26,13 +26,21 @@ export const CustomerEstimateList = () => {
     )
     useEffect(
         () => {
+            const searchedWorkOrder = estimates.filter( estimate => estimate.workOrder.address.toLowerCase().includes(searchTermState.toLowerCase()))
+            
+            setFilteredEstimates(searchedWorkOrder)
+
+        }, [searchTermState] 
+        )
+    useEffect(
+        () => {
             const myEstimates = estimates.filter(estimate => estimate?.workOrder?.userId === paintUserObject.id)
             setFilteredEstimates(myEstimates)
 
         }, [estimates]
     )
-    return <article>
-            <h2>Open Estimates</h2>
+    return <article className="has-background-white-ter">
+          
 
         {<>
                 {filteredEstimates.map((estimate) =><CustomerEstimate id={estimate.id} address={estimate.workOrder.address} estimateDate={estimate.estimateDate} price={estimate.price} /> )

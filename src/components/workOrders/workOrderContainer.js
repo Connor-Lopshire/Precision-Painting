@@ -1,11 +1,12 @@
+import { useState } from "react"
 import { WorkOrderList } from "./WorkOrderList"
-import { workOrderSearch } from "./workOrderSearch"
+import { WorkOrderSearch } from "./workOrderSearch"
 
-export const workOrderContainer = () => {
+export const WorkOrderContainer = () => {
     const [searchTerms, setSeachTerms] = useState("")
 
     return <>
-     <workOrderSearch setterFunction={setSeachTerms} />
+     <WorkOrderSearch setterFunction={setSeachTerms} />
      <WorkOrderList searchTermState={searchTerms}/>
 
     </>
