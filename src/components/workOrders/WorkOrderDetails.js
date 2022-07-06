@@ -7,7 +7,7 @@ export const WorkOrderDetails = ({address, description, startDate, estimatePrice
         <div className="title">{address}</div>
         <div className="subtitle">{startDate}</div>
         <div className="content">{description}</div>
-        <div className="content">{estimatePrice}</div>
+        <div className="content">${estimatePrice}</div>
         </div>
       
        

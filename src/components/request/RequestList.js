@@ -63,7 +63,7 @@ export const RequestList = ({searchTermState}) => {
                 {filteredRequestList.map((request) => {
                     return <section className="tile is-parent box has-background-white-ter" key={`request--${request.id}`}>
                         <div className="tile is-child">{request.address}</div> 
-                        <div className="tile is-child">Date Requested:{request.date}</div>
+                        <div className="tile is-child">Date Requested: {request.date}</div>
                     </section>
                 })
                 }

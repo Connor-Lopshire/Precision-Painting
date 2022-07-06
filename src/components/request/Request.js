@@ -6,7 +6,7 @@ export const Request = ({id, address, date}) => {
     return <section className="tile is-parent box has-background-white-ter" >
  
         <Link className="tile is-child has-text-grey-dark" to={`/acceptRequest/${id}`} >{address}</Link>
-    <div className="tile is-child">Date Requested{date}</div>
+    <div className="tile is-child">Date Requested: {date}</div>
 
 </section>
 }

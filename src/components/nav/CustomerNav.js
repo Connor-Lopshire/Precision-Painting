@@ -32,11 +32,12 @@ export const CustomerNav = () => {
         <nav className="navbar">
             <div className="container">
                 <div className="navbar-brand">
-                    <a className="navbar-item">
-                        <img src="/ppclogo.png" alt="Logo"/>
-                    </a>
+                    {/* <a className="image is-128x128 mt-6">
+                        <img src="https://res.cloudinary.com/dssbccmqz/image/upload/f_auto/v1657052793/precisio-paint/PPC_Pocket_vgby73.heic" alt="Logo"/>
+                    </a> */}
                     <span className="navbar-burger" data-target="navbarMenuHeroB">
-                        <span></span>
+                    
+                       <span></span>
                         <span></span>
                         <span></span>
                     </span>
@@ -78,7 +79,7 @@ export const CustomerNav = () => {
             <div className="container">
                 <ul>
                     <li >
-                    <Link className="navbar__link" to="/request">Request</Link>
+                    <Link className="navbar__link" to="/request">Requests</Link>
                     </li>
                     <li className="navbar__item active">
                 <Link className="navbar__link" to="/estimates">Estimates</Link>

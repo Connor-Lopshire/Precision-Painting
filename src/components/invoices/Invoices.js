@@ -51,8 +51,8 @@ export const InvoiceList = ({searchTermState}) => {
                 filteredInvoices.map((invoice) => {
                     return <section className=" tile box is-parent has-background-white-ter"> 
                         <div className="tile is-child">{invoice.workOrder.address}</div>
-                        <div className="tile is-child">{invoice.dateCompleted}</div>
-                        <div className="tile is-child">{invoice.amountOwed}</div>
+                        <div className="tile is-child"> Date Completed: {invoice.dateCompleted}</div>
+                        <div className="tile is-child">${invoice.amountOwed}</div>
 
 
                     </section>

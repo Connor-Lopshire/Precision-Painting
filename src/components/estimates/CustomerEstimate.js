@@ -13,7 +13,7 @@ export const CustomerEstimate = ({id, address, estimateDate, price}) => {
 
     <Link  className="tile is-child has-text-grey-dark" to={`/CustomerEstimateDetails/${id}`}>{address}</Link>
  
-    <div className="tile is-child">{estimateDate}</div>
+    <div className="tile is-child">Date Quoted: {estimateDate}</div>
     </section>
     
 }

@@ -31,9 +31,9 @@ export const EmployeeNav = () => {
         <nav className="navbar">
             <div className="container">
                 <div className="navbar-brand">
-                    <a className="navbar-item">
+                    {/* <a className="navbar-item">
                         <img src="/ppclogo.png" alt="Logo"/>
-                    </a>
+                    </a> */}
                     <span className="navbar-burger" data-target="navbarMenuHeroB">
                         <span></span>
                         <span></span>
@@ -77,7 +77,7 @@ export const EmployeeNav = () => {
             <div className="container">
                 <ul>
                     <li >
-                    <Link className="navbar__link" to="/request">Request</Link>
+                    <Link className="navbar__link" to="/request">Requests</Link>
                     </li>
                     <li>
                     <Link className="navbar__link" to="/workOrders">Active Work</Link>

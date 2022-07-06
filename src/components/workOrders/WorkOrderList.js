@@ -65,7 +65,7 @@ export const WorkOrderList = ({searchTermState}) => {
 
                         <div className="tile is-child   ">{order.workOrder.address}</div> 
 
-                        <div className="tile is-child ">Date Started:{order.startDate}</div>
+                        <div className="tile is-child ">Date Started: {order.startDate}</div>
                         
                     </section>
                 })

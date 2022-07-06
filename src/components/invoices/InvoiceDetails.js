@@ -51,7 +51,7 @@ export const InvoiceDetails = () => {
                 <div className="title"> {invoice?.workOrder?.address} </div>
                 <div  className="subtitle mt-4"> {invoice.dateCompleted} </div>
                 <div className="content"> {invoice?.workOrder?.description} </div>
-                <div className="content">  {invoice.amountOwed} </div>
+                <div className="content">  ${invoice.amountOwed} </div>
             <form>
                     <div className="field">
                         <div className="control"> 
