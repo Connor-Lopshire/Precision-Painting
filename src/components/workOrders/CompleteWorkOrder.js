@@ -21,11 +21,11 @@ import { WorkOrderDetails } from "./WorkOrderDetails"
 export const CompleteWorkOrder = () => {
     const { estimateId } = useParams()
     const [estimate, setEstimate] = useState({
-        completed:false
+        completed: false
     }
-       
+
     )
-    const [invoice, setInvoice]= useState({
+    const [invoice, setInvoice] = useState({
         dateCompleted: "",
         amountOwed: 0,
         completed: false
@@ -43,56 +43,58 @@ export const CompleteWorkOrder = () => {
                 )
         }, [estimateId]
     )
-const handleButtonClick = (event) => {
-    event.preventDefault()
-    // post or put first ? 
-    const newInvoice = {
-        workOrderId: estimate.workOrder.id,
-        estimateId: estimate.id,
-        dateCompleted: invoice.dateCompleted,
-        amountOwed: invoice.amountOwed,
-        completed: false
-    } 
-    return fetch(`http://localhost:8088/estimates/${estimateId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(estimate)
-    })
-        .then(response => response.json())
-        .then(() => {
-            fetch(`http://localhost:8088/invoices`,{
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newInvoice)
-            })
-                .then(response => response.json())
-                .then(() => {
-                     navigate("/workOrders")
-                })
+    const handleButtonClick = (event) => {
+        event.preventDefault()
+        // post or put first ? 
+        const newInvoice = {
+            workOrderId: estimate.workOrder.id,
+            estimateId: estimate.id,
+            dateCompleted: invoice.dateCompleted,
+            amountOwed: invoice.amountOwed,
+            completed: false
+        }
+        return fetch(`http://localhost:8088/estimates/${estimateId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(estimate)
         })
+            .then(response => response.json())
+            .then(() => {
+                fetch(`http://localhost:8088/invoices`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(newInvoice)
+                })
+                    .then(response => response.json())
+                    .then(() => {
+                        navigate("/workOrders")
+                    })
+            })
 
-}
+    }
 
-    return <>
+    return <article className="has-background-white-ter px-6 py-5">
         {
             <WorkOrderDetails address={estimate?.workOrder?.address} description={estimate?.workOrder?.description}
                 startDate={estimate.startDate} estimatePrice={estimate.price} />
         }
         {
-            <form className="ticketForm">
-                <h2 className="invoiceForm__title">Create Invoice</h2>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="dateCompleted"> Date Completed:</label>
+            <form >
+                <h2 className="title">Create Invoice</h2>
+
+                <div className="field">
+                    <label className="label"> Date Completed:</label>
+                    <div className="control">
+
                         <input
                             required autoFocus
                             type="date"
                             step="any"
-                            className="form-control"
+                            className="input is-rounded"
                             placeholder="dateCompleted"
                             value={invoice?.dateCompleted}
                             onChange={
@@ -103,30 +105,34 @@ const handleButtonClick = (event) => {
 
                                 }} />
                     </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="amountOwed">Amount Owed:</label>
-                        <input
-                            required autoFocus
-                            type="number"
-                            step="any"
-                            className="form-control"
-                            placeholder="Amount Owed"
-                            value={invoice?.amountOwed}
-                            onChange={
-                                (evt) => {
-                                    const copy = { ...invoice }
-                                    copy.amountOwed = evt.target.value === "" ? 0 : parseFloat(evt.target.value, 2)
-                                    setInvoice(copy)
+                </div>
 
-                                }} />
+                <div className="field">
+                        <label className="label">Amount Owed:</label>
+                    <div className="control">
+                        <div className="control">
+
+                            <input
+                                required autoFocus
+                                type="number"
+                                step="any"
+                                className="input is-rounded"
+                                placeholder="Amount Owed"
+                                value={invoice?.amountOwed}
+                                onChange={
+                                    (evt) => {
+                                        const copy = { ...invoice }
+                                        copy.amountOwed = evt.target.value === "" ? 0 : parseFloat(evt.target.value, 2)
+                                        setInvoice(copy)
+
+                                    }} />
+                        </div>
                     </div>
-                </fieldset>
-                <fieldset>
-                    <div className="form-group">
-                        <label htmlFor="name"> Work Complete:</label>
-                        <input type="checkbox"
+                </div>
+                <div className="field mt-5">
+                    <div className="control">
+                        <label className="checkbox"> Work Complete
+                        <input type="checkbox" className="checkbox"
                             value={estimate.completed}
                             onChange={
                                 (evt) => {
@@ -135,18 +141,19 @@ const handleButtonClick = (event) => {
                                     setEstimate(copy)
                                 }
                             } />
+                            </label>
                     </div>
-                </fieldset>
+                </div >
 
-                <button
-           onClick={(evt) => {
-               handleButtonClick(evt)
-           }}
-           className="btn btn-primary">
-           Submit Invoice
-       </button>
+                <button className="button is-dark my-6"
+                    onClick={(evt) => {
+                        handleButtonClick(evt)
+                    }}
+                >
+                    Submit Invoice
+                </button>
             </form>
 
 }
-    </>
+</article>
 }

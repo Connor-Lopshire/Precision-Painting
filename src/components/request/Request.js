@@ -3,11 +3,10 @@
 import { Link } from "react-router-dom"
 
 export const Request = ({id, address, date}) => {
-    return <section className="activeWorkOrder" >
-    <div>
-        <Link to={`/acceptRequest/${id}`} >{address}</Link>
-        </div>
-    <div>Date Requested{date}</div>
+    return <section className="tile is-parent box has-background-white-ter" >
+ 
+        <Link className="tile is-child has-text-grey-dark" to={`/acceptRequest/${id}`} >{address}</Link>
+    <div className="tile is-child">Date Requested: {date}</div>
 
 </section>
 }

@@ -12,7 +12,7 @@
 import { useEffect, useState } from "react"
 import { WorkOrder } from "./WorkOrder"
 
-export const WorkOrderList = () => {
+export const WorkOrderList = ({searchTermState}) => {
     const [activeWorkOrders, setActiveWorkOrders] = useState([])
     const [filteredWorkOrders, setFilteredWorkOrders] = useState([])
     const localePaintUser = localStorage.getItem("paint_user")
@@ -31,24 +31,42 @@ export const WorkOrderList = () => {
     )
     useEffect(
         () => {
-            const myWorkOrders = activeWorkOrders.filter(order => order?.workOrder?.userId === paintUserObject.id)
-            setFilteredWorkOrders(myWorkOrders)
+            const searchedWorkOrder = activeWorkOrders.filter( order => order.workOrder.address.toLowerCase().includes(searchTermState.toLowerCase()))
+            
+            setFilteredWorkOrders(searchedWorkOrder)
+
+        }, [searchTermState]
+    )
+    useEffect(
+        () => {
+            if (paintUserObject.staff === true) {
+                setFilteredWorkOrders(activeWorkOrders)
+            }
+            else {
+
+                const myWorkOrders = activeWorkOrders.filter(order => order?.workOrder?.userId === paintUserObject.id)
+                setFilteredWorkOrders(myWorkOrders)
+            }
 
         }, [activeWorkOrders]
     )
-    return <article>
-            <h2>Active Work</h2>
+    return <article className="has-background-white-ter pt-4 pr-5 pl-5">
+        
 
         {paintUserObject.staff === true
             ? <>{
-                activeWorkOrders.map(order => <WorkOrder key={`employeeActiveWorkOrders--${order.id}`} id={order.id}  address={order.workOrder.address} date={order.startDate}/>)
+                filteredWorkOrders.map(order => <WorkOrder key={`employeeActiveWorkOrders--${order.id}`} id={order.id}  address={order.workOrder.address} date={order.startDate}/>)
             }
             </>
             : <>
                 {filteredWorkOrders.map((order) => {
-                    return <section key={`activeWorkOrder--${order.id}`}>
+                    return <section className="tile is-parent box has-background-white-ter mt-5" key={`activeWorkOrder--${order.id}`}>
+                       
 
-                        <div>{order.workOrder.address}</div> <div>Date Started:{order.startDate}</div>
+                        <div className="tile is-child   ">{order.workOrder.address}</div> 
+
+                        <div className="tile is-child ">Date Started: {order.startDate}</div>
+                        
                     </section>
                 })
                 }

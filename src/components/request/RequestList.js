@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom"
 import { Request } from "./Request"
 
 
-export const RequestList = () => {
+export const RequestList = ({searchTermState}) => {
     const [requestList, setRequestList] = useState([])
     const [filteredRequestList, setFilteredRequestList] = useState([])
     const localePaintUser = localStorage.getItem("paint_user")
@@ -31,24 +31,39 @@ export const RequestList = () => {
     )
     useEffect(
         () => {
-            const myRequest = requestList.filter(request => request.userId === paintUserObject.id)
-            setFilteredRequestList(myRequest)
+            const searchedWorkOrder = requestList.filter( request => request.address.toLowerCase().includes(searchTermState.toLowerCase()))
+            
+            setFilteredRequestList(searchedWorkOrder)
+
+        }, [searchTermState]
+    )
+    useEffect(
+        () => {
+            if (paintUserObject.staff === true) {
+                setFilteredRequestList(requestList)
+            }
+            else {
+
+                const myRequest = requestList.filter(request => request.userId === paintUserObject.id)
+                setFilteredRequestList(myRequest)
+            }
 
         }, [requestList]
     )
-    return <article>
-        <h2>Requested Work</h2>
+    return <article className=" has-background-white-ter pt-3 pr-5 pl-5 pb-6">
+      
 
         {paintUserObject.staff === true
             ? <>{
-                requestList.map(request => <Request key={`employeeRequest--${request.id}`} id={request.id} address={request.address} date={request.date} />)
+                filteredRequestList.map(request => <Request key={`employeeRequest--${request.id}`} id={request.id} address={request.address} date={request.date} />)
             }
             </>
             : <>
-                <button onClick={() => navigate("/NewRequestForm")}>Create Work Request</button>
+                <button  className="button is-dark my-6 ml-3" onClick={() => navigate("/NewRequestForm")}>Create Work Request</button>
                 {filteredRequestList.map((request) => {
-                    return <section key={`request--${request.id}`}>
-                        <div>{request.address}</div> <div>Date Requested:{request.date}</div>
+                    return <section className="tile is-parent box has-background-white-ter" key={`request--${request.id}`}>
+                        <div className="tile is-child">{request.address}</div> 
+                        <div className="tile is-child">Date Requested: {request.date}</div>
                     </section>
                 })
                 }

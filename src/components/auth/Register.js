@@ -53,36 +53,79 @@ export const Register = (props) => {
         setCustomer(copy)
     }
 
-    return (
-        <main style={{ textAlign: "center" }}>
-            <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for Precison Painting</h1>
-                <fieldset>
-                    <label htmlFor="fullName"> Full Name </label>
-                    <input onChange={updateCustomer}
+    return (    <section className="hero is-fullheight has-background-grey">
+    <div className="hero-body">
+      <div className="container">
+    <div className="columns is-centered">
+  
+    <div className="column is-centered is-5">
+      <div className="">
+        <p className="title is-1 has-text-centered pb-6 has-text-white">Precision Painting Compnay</p>
+       
+      </div>
+    </div>
+    </div>
+        <div className="columns  is-centered">
+          <div className="column is-5-tablet is-4-desktop is-3-widescreen">
+            <form action="" className="box has-background-white-ter" onSubmit={handleRegister}>
+            <div className="field">
+                <label for="" className="label">Full Name</label>
+                <div className="control has-icons-left">
+                <input onChange={updateCustomer}
                            type="text" id="fullName" className="form-control"
                            placeholder="Enter your name" required autoFocus />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="email"> Email address </label>
-                    <input onChange={updateCustomer}
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-envelope"></i>
+                  </span>
+              </div>
+              </div>
+              <div className="field">
+                <label for="" className="label">Email</label>
+                <div className="control has-icons-left">
+                <input onChange={updateCustomer}
                         type="email" id="email" className="form-control"
                         placeholder="Email address" required />
-                </fieldset>
-                <fieldset>
-                    <input onChange={(evt) => {
-                        const copy = {...customer}
-                        copy.isStaff = evt.target.checked
-                        setCustomer(copy)
-                    }}
-                        type="checkbox" id="isStaff" />
-                    <label htmlFor="email"> I am an employee </label>
-                </fieldset>
-                <fieldset>
-                    <button type="submit"> Register </button>
-                </fieldset>
-            </form>
-        </main>
+                  <span className="icon is-small is-left">
+                    <i className="fa fa-envelope"></i>
+                  </span>
+              </div>
+              </div>
+              <div className="field">
+                <button type="submit" className="button is-dark ">
+                  Register
+                </button>
+                </div>
+               
+              </form>
+                </div>
+              </div>
+              </div>
+              </div>
+              
+              </section>
+      
+      
+        // <main style={{ textAlign: "center" }}>
+        //     <form className="form--login" onSubmit={handleRegister}>
+        //         <h1 className="h3 mb-3 font-weight-normal">Please Register for Precison Painting</h1>
+        //         <fieldset>
+        //             <label htmlFor="fullName"> Full Name </label>
+        //             <input onChange={updateCustomer}
+        //                    type="text" id="fullName" className="form-control"
+        //                    placeholder="Enter your name" required autoFocus />
+        //         </fieldset>
+        //         <fieldset>
+        //             <label htmlFor="email"> Email address </label>
+        //             <input onChange={updateCustomer}
+        //                 type="email" id="email" className="form-control"
+        //                 placeholder="Email address" required />
+        //         </fieldset>
+               
+        //         <fieldset>
+        //             <button type="submit"> Register </button>
+        //         </fieldset>
+        //     </form>
+        // </main>
     )
 }
 
