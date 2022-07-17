@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { CustomerEstimateList } from "./CustomerEstimateList"
+import {CustomerEstimateList}  from "./CustomerEstimateList"
 import { CustomerEstimateSearch } from "./CustomerEstimateSearch"
 
 export const CustomerEstimateContainer = () => {
-    const [searchTerms, setSeachTerms] = useState("")
+    const [searchTerms, setSearchTerms] = useState("")
 
     return <>
-     <CustomerEstimateSearch setterFunction={setSeachTerms} />
+     <CustomerEstimateSearch setterFunction={setSearchTerms} />
      <CustomerEstimateList searchTermState={searchTerms}/>
 
     </>

@@ -4,7 +4,7 @@
 // add  corresponding route in CustomerViews
 
 import { useEffect, useState } from "react"
-import { CustomerEstimate } from "./CustomerEstimate"
+import  {CustomerEstimate}  from "./CustomerEstimate"
 
 
 export const CustomerEstimateList = ({searchTermState}) => {

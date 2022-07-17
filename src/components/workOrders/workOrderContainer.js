@@ -3,10 +3,10 @@ import { WorkOrderList } from "./WorkOrderList"
 import { WorkOrderSearch } from "./workOrderSearch"
 
 export const WorkOrderContainer = () => {
-    const [searchTerms, setSeachTerms] = useState("")
+    const [searchTerms, setSearchTerms] = useState("")
 
     return <>
-     <WorkOrderSearch setterFunction={setSeachTerms} />
+     <WorkOrderSearch setterFunction={setSearchTerms} />
      <WorkOrderList searchTermState={searchTerms}/>
 
     </>

@@ -1,13 +1,13 @@
 import { useState } from "react"
-import { InvoiceList } from "./Invoices"
+import  {InvoiceList}  from "./Invoices"
 import { InvoiceSearch } from "./InvoiceSearch"
 
 export const InvoiceContainer = () => {
-    const [searchTerms, setSeachTerms] = useState("")
+    const [searchTerms, setSearchTerms] = useState("")
 
     return <>
-     <InvoiceSearch setterFunction={setSeachTerms} />
-     <InvoiceList searchTermState={searchTerms}/>
+        <InvoiceSearch setterFunction={setSearchTerms} />
+        <InvoiceList searchTermState={searchTerms} />
 
     </>
 }
