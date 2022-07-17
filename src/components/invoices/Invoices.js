@@ -4,7 +4,7 @@
 // customer sees filteredInvoices with button that makes completed=true
 // send to both employee and customer views
 import { useEffect, useState } from "react"
-import { Invoice } from "./Invoice"
+import  {Invoice}  from "./Invoice"
 
 export const InvoiceList = ({searchTermState}) => {
     const [invoices, setInvoices] = useState([])

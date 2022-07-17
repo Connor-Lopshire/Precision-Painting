@@ -12,7 +12,7 @@ export const CustomerEstimateDetails = () => {
     const [estimate, setEstimate] = useState({
         approved: false
     })
-    
+
     const navigate = useNavigate()
 
 
@@ -30,9 +30,9 @@ export const CustomerEstimateDetails = () => {
         }, []
     )
     const handleButtonClick = (event) => {
-      
+
         // post or put first ? 
-        
+
         return fetch(`http://localhost:8088/estimates/${estimateId}`, {
             method: "PUT",
             headers: {
@@ -42,54 +42,54 @@ export const CustomerEstimateDetails = () => {
         })
             .then(response => response.json())
             .then(() => {
-               navigate("/estimates")
-    } )
-}
+                navigate("/estimates")
+            })
+    }
     console.log(estimate)
-    return ( <article className=" has-background-white-ter  pb-6 ml-2">
+    return (<article className=" has-background-white-ter  pb-6 ml-2">
 
-<h2 className="title is-2  has-background-white-ter pt-5  ml-5">Approve Estimate</h2>
+        <h2 className="title is-2  has-background-white-ter pt-5  ml-5">Approve Estimate</h2>
         <section className="tile is-ancestor pb-6  ml-5" >
             <div className="tile is-parent pb-6 pt-5 ">
 
-        <div className="tile pb-6 is-child">
+                <div className="tile pb-6 is-child">
 
-                <div className="title" > {estimate?.workOrder?.address} </div>
-                <div className="subtitle mt-4" > {estimate.estimateDate} </div>
-                <div className="content" >  {estimate?.workOrder?.description} </div>
-                <div className="content">  ${estimate.price} </div>
-                
-          
+                    <div className="title" > {estimate?.workOrder?.address} </div>
+                    <div className="subtitle mt-4" > {estimate.estimateDate} </div>
+                    <div className="content" >  {estimate?.workOrder?.description} </div>
+                    <div className="content">  ${estimate.price} </div>
 
-            
-            <form>
-                    <div className="field">
-                        <div className="control">
 
-                        <label className="checkbox"> Approved:</label>
-                        <input type="checkbox" className="checkbox"
-                            value={estimate.approved}
-                            onChange={
-                                (evt) => {
-                                    const copy = { ...estimate }
-                                    copy.approved = evt.target.checked
-                                    setEstimate(copy)
-                                    
-                                }
-                            } />
+
+
+                    <form>
+                        <div className="field">
+                            <div className="control">
+
+                                <label className="checkbox"> Approved:</label>
+                                <input type="checkbox" className="checkbox"
+                                    value={estimate.approved}
+                                    onChange={
+                                        (evt) => {
+                                            const copy = { ...estimate }
+                                            copy.approved = evt.target.checked
+                                            setEstimate(copy)
+
+                                        }
+                                    } />
                             </div>
-                    </div>
-                </form>
-                <button 
+                        </div>
+                    </form>
+                    <button
 
-onClick={(evt) => {
-    handleButtonClick(evt)
-}}
-className="button is-dark my-6 ml-6">
-           Submit 
-       </button>
-               </div>
-    </div>
+                        onClick={(evt) => {
+                            handleButtonClick(evt)
+                        }}
+                        className="button is-dark my-6 ml-6">
+                        Submit
+                    </button>
+                </div>
+            </div>
         </section>
     </article>
     )

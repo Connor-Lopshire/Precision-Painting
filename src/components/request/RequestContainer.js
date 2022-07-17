@@ -4,10 +4,10 @@ import { RequestSearch } from "./RequestSearch"
 
 
 export const RequestContainer = () => {
-    const [searchTerms, setSeachTerms] = useState("")
+    const [searchTerms, setSearchTerms] = useState("")
 
     return <>
-     <RequestSearch setterFunction={setSeachTerms} />
+     <RequestSearch setterFunction={setSearchTerms} />
      <RequestList searchTermState={searchTerms}/>
 
     </>
