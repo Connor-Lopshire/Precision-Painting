@@ -5,7 +5,7 @@ import { InvoiceContainer } from "../invoices/InvoiceContainer"
 import { InvoiceDetails } from "../invoices/InvoiceDetails"
 import { NewRequestForm } from "../request/NewRequestForm"
 import { RequestContainer } from "../request/RequestContainer"
-import { WorkOrderContainer } from "../workOrders/WorkOrderContainer"
+import { WorkOrderContainer } from "../workOrders/workOrderContainer"
 
 
 export const CustomerViews = () => {

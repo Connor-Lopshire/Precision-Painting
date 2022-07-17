@@ -1,12 +1,9 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { InvoiceContainer } from "../invoices/InvoiceContainer"
-import { InvoiceList } from "../invoices/Invoices"
 import { AcceptRequest } from "../request/AcceptRequest"
 import { RequestContainer } from "../request/RequestContainer"
-import { RequestList } from "../request/RequestList"
 import { CompleteWorkOrder } from "../workOrders/CompleteWorkOrder"
-import { WorkOrderContainer } from "../workOrders/WorkOrderContainer"
-import { WorkOrderList } from "../workOrders/WorkOrderList"
+import { WorkOrderContainer } from "../workOrders/workOrderContainer"
 export const EmployeeViews = () => {
     return (
         <Routes>
