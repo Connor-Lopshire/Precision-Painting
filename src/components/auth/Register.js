@@ -60,7 +60,7 @@ export const Register = (props) => {
   
     <div className="column is-centered is-5">
       <div className="">
-        <p className="title is-1 has-text-centered pb-6 has-text-white">Precision Painting Compnay</p>
+        <p className="title is-1 has-text-centered pb-6 has-text-white">Precision Painting Company</p>
        
       </div>
     </div>
