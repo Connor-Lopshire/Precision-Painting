@@ -24,5 +24,7 @@ React HTML CSS Bulma
 ![Accept Request Create Estimate](gifs/Precsion-accept-work.gif)
 ### Customer approvres estimate
 ![Approve estimate](gifs/Precision-approve-estimate.gif)
-### Company marks work order completes and creates invoice
+### Company marks work order complete and creates invoice
 ![Create invoice](gifs/precision-create-invoice.gif)
+### Customer marks invoice complete
+![Complete invoice](gifs/precision-complete-invoice.gif)
