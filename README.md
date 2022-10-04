@@ -10,9 +10,9 @@ React HTML CSS Bulma
 
 ## Intallation Instructions
 
-1.In the terminal, run git clone https://github.com/NSS-Day-Cohort-42/rare-news-hounds.git
-2.Move into the folder you just created cd rare-news-hounds
-3.Run npm install
-4.Run npm start
-5.This will bring up a browser window showing the react app, but you won't be able to log into the site or access data without running the database side of this project. To download and start the server, go to https://github.com/NSS-Day-Cohort-42/news_hounds_django_server, and follow the readme there.
+1. In the terminal, run git clone https://github.com/NSS-Day-Cohort-42/rare-news-hounds.git
+2. Move into the folder you just created cd rare-news-hounds
+3. Run npm install
+4. Run npm start
+5. This will bring up a browser window showing the react app, but you won't be able to log into the site or access data without running the database side of this project. To download and start the server, go to https://github.com/NSS-Day-Cohort-42/news_hounds_django_server, and follow the readme there.
 Once you are running the sample database, create a new user, and log in to view the site. 🦮 Good Boy!!!🦮 Give yourself a treat!🦮
