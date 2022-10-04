@@ -20,3 +20,5 @@ React HTML CSS Bulma
 
 ### Customer submits work order 
 ![Create Request](gifs/Precision-customer-request-work.gif)
+### Company accepts request and creates estimate 
+![Accept Request Create Estimate](gifs/Precision-accept-work.gif)
