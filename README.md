@@ -18,5 +18,5 @@ React HTML CSS Bulma
 
 ## User Experience
 
-# Customer submits work order 
-![Create Request](gif/Precision-customer-request-work.gif)
+### Customer submits work order 
+![Create Request](gifs/Precision-customer-request-work.gif)
