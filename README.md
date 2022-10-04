@@ -15,7 +15,7 @@ React HTML CSS Bulma
 3. Run `npm install`
 4. Run `npm start`
 5. This will bring up a browser window showing the react app, but you won't be able to log into the site or access data without running the database side of this project. To download and start the server, go to `https://github.com/Connor-Lopshire/Precision-Painting-API`, and follow the readme there.
-
+6. With server running you can access the company view with the email `bryan@bryan` - to access a customer register a new email or use `Dovie.Bogan79@yahoo.com`
 ## User Experience
 
 ### Customer submits work order 
