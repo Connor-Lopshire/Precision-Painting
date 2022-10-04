@@ -1,6 +1,6 @@
 # Precision Painting 
 ## Application Overview
-This application was inspired by the paint company I owned before transitioning into spftware. The goal was to create an application where one user ,could create work orders, approve estimates and complete invoices for a paint company. In conjuncture the paint company application view allows the user to accept work orders, and create corresponding estimates and invoices. 
+This application was inspired by the paint company I owned before transitioning into spftware. The intention was to create an application where one user ,could create work orders, approve estimates and complete invoices for a paint company. In conjuncture the paint company application view allows the user to accept work orders, and create corresponding estimates and invoices. 
 
 I built this application in two weeks initially, using React Hooks and Bulma for styling. My goals were to incorporate full CRUD functionality with many-to-many relationships, gain a deeper understanding of React Hooks, props, and state, while also incorporating a simple, functional user interface.
 
