@@ -10,9 +10,12 @@ React HTML CSS Bulma
 
 ## Intallation Instructions
 
-1. In the terminal, run git clone git@github.com:Connor-Lopshire/Precision-Painting.git
+1. In the terminal, run `git clone git@github.com:Connor-Lopshire/Precision-Painting.git`
 2. Move into the folder you just created cd Precision-Painting
-3. Run npm install
-4. Run npm start
-5. This will bring up a browser window showing the react app, but you won't be able to log into the site or access data without running the database side of this project. To download and start the server, go to https://github.com/Connor-Lopshire/Precision-Painting-API, and follow the readme there.
+3. Run `npm install`
+4. Run `npm start`
+5. This will bring up a browser window showing the react app, but you won't be able to log into the site or access data without running the database side of this project. To download and start the server, go to `https://github.com/Connor-Lopshire/Precision-Painting-API`, and follow the readme there.
+
+## User Experience
+
 
